@@ -43,8 +43,8 @@ for (var i = 0; i < questions.length; i++) {
   var question = questions[i];
 
   var sec = document.createElement("section");
-  sec.className = "question test" + i;
-  sec.innerHTML = question.question;
+  sec.className = "quiz__questions--question q" + i;
+  sec.innerHTML = `<p>${question.question}</p>`;
   document.getElementById("form").appendChild(sec);
 
   for (var j = 0; j < question.answers.length; j++) {
@@ -52,10 +52,10 @@ for (var i = 0; i < questions.length; i++) {
     var answer = question.answers[j];
 
     var div = document.createElement("div");
-    var radioBtn = `<input type="radio" class="answer" id="group${i}" name="test${i}" value="${answer}">`
+    var radioBtn = `<input type="radio" name="group${i}" value="${answer}">`
     div.innerHTML = radioBtn + " " + answer;
     // div.setAttribute("id", "answer");
-    document.querySelector(".test" + i).appendChild(div);
+    document.querySelector(".q" + i).appendChild(div);
   }
 }
 
@@ -87,8 +87,8 @@ form.addEventListener("submit", function(event) {
   document.getElementById("incorrect").innerHTML = incorrectAns;
   document.getElementById("unanswered").innerHTML = unanswered;
 
-  document.getElementById("quiz").style.display = "none"
-  document.getElementById("results").style.display = "block"
+  document.getElementById("quiz__questions").style.display = "none"
+  document.getElementById("quiz__results").style.display = "block"
 });
 
-document.getElementById("results").style.display = "none"
+document.getElementById("quiz__results").style.display = "none"
