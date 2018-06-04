@@ -1,6 +1,36 @@
 var correctAns = 0;
 var incorrectAns = 0;
 var unanswered = 0;
+var counter = 30;
+var timerCountdown = document.getElementById("countdown");
+var displayResults = document.getElementById("quiz__results").style.display;
+var displayQuestions = document.getElementById("quiz__questions").style.display;
+
+displayResults = "none";
+
+function showResults() {
+  displayQuestions = "none";
+  displayResults  = "block";
+}
+
+// Set Timer
+var timer = setTimeout(function() {
+  showResults();
+}, counter * 1000);
+
+// Set Countdown
+var countdown = setInterval(function() {
+  counter--;
+  timerCountdown.innerHTML = counter;
+  if (counter === 0) {
+    stopCountdown();   
+    showResults(); 
+  }
+}, 1000);
+
+function stopCountdown() {
+  clearInterval(countdown);
+}
 
 var questions = [
   {
@@ -59,10 +89,10 @@ for (var i = 0; i < questions.length; i++) {
   }
 }
 
-
 var form = document.forms["form"];
 form.addEventListener("submit", function(event) {
   event.preventDefault();
+  stopCountdown();
 
   for (var i = 0; i < form.children.length; i++) {
     var found = "";
@@ -87,8 +117,5 @@ form.addEventListener("submit", function(event) {
   document.getElementById("incorrect").innerHTML = incorrectAns;
   document.getElementById("unanswered").innerHTML = unanswered;
 
-  document.getElementById("quiz__questions").style.display = "none"
-  document.getElementById("quiz__results").style.display = "block"
+  showResults();
 });
-
-document.getElementById("quiz__results").style.display = "none"
