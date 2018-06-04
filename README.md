@@ -6,9 +6,7 @@ Dynamically created form with and event listening with vanilla JavaScript.
 
 ### Preview Site
 
-```
-Coming Soon.
-```
+[Demo](https://rachelparris.github.io/trivia-game-basic/)
 
 ### Built With
 
