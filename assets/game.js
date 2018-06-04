@@ -3,14 +3,14 @@ var incorrectAns = 0;
 var unanswered = 0;
 var counter = 30;
 var timerCountdown = document.getElementById("countdown");
-var displayResults = document.getElementById("quiz__results").style.display;
-var displayQuestions = document.getElementById("quiz__questions").style.display;
+var displayResults = document.getElementById("quiz__results");
+var displayQuestions = document.getElementById("quiz__questions");
 
-displayResults = "none";
+displayResults.style.display = "none";
 
 function showResults() {
-  displayQuestions = "none";
-  displayResults  = "block";
+  displayQuestions.style.display = "none";
+  displayResults.style.display  = "block";
 }
 
 // Set Timer
@@ -34,38 +34,38 @@ function stopCountdown() {
 
 var questions = [
   {
-    question: "1st question",
+    question: "Which position did President Roslin have before taking her current job as president after the attack by the cylons?",
     answers: [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Secretary of Education",
+      "Secretary of Defense",
+      "Doctor",
+      "Professor"
     ]
   },
   {
-    question: "2nd question",
+    question: "How many cylon models are there in total?",
     answers: [
-      "A",
-      "B",
-      "C",
-      "D"
+      "3",
+      "13",
+      "8",
+      "20"
     ]
   },
   {
-    question: "3rd question",
+    question: "What is the name of the homeworld?",
     answers: [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Earth",
+      "Caprica",
+      "Picon",
+      "Kobol"
     ]
   },
 ];
 
 var correctAnsArr = [
-  "A",
-  "B",
-  "D"
+  "Secretary of Education",
+  "13",
+  "Kobol"
 ];
 
 // Display question and answers
