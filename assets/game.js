@@ -82,9 +82,13 @@ form.addEventListener("submit", function(event) {
       incorrectAns += 1;      
     }
   }
-  console.log({
-    correctAns,
-    incorrectAns,
-    unanswered,
-  })
+
+  document.getElementById("correct").innerHTML = correctAns;
+  document.getElementById("incorrect").innerHTML = incorrectAns;
+  document.getElementById("unanswered").innerHTML = unanswered;
+
+  document.getElementById("quiz").style.display = "none"
+  document.getElementById("results").style.display = "block"
 });
+
+document.getElementById("results").style.display = "none"
